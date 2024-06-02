@@ -1,22 +1,39 @@
-<!-- TODO 1: Create the HTML Boilerplate -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample Portfolio</title>
+    <title>Checklist</title>
 </head>
 <body>
-    <h1>Henry's Sample Portfolio</h1>
-    <h2>I'm a Web Developer</h2>
-    <hr />
-    <h3><a href="./public/movie-ranking.html">Movie Ranking Project</a></h3>
-    <img src="./assets/images/movie-ranking.png" alt="Movie Ranking Image" height="200"/>
+    <h2>需老妈帮忙在线上/线下挑选并购买的：</h2>
+    <form>
+        <label><input type="checkbox" name="item1" id="item1"> 薄袜子</label><br>
+        <label><input type="checkbox" name="item2" id="item2"> 速干衣*2</label><br>
+        <label><input type="checkbox" name="item3" id="item3"> 运动短裤*2</label><br>
+        <label><input type="checkbox" name="item4" id="item4"> 镜头：适马 art 14 f1.8 DG HSM 佳能卡口</label><br>
+        <label><input type="checkbox" name="item5" id="item5"> 润肤水</label><br>
+        <label><input type="checkbox" name="item6" id="item6"> 切蒜器</label><br>
 
-    <h3><a href="./public/birthday-invite.html">Birthday Invite Project</a></h3>
-    <img src="./assets/images/birthday-invite.png" alt="Birthday Invite Project" height="200"/>
+        <h2>需老妈帮忙通过发送的链接购买的：</h2>
+        <label><input type="checkbox" name="item7" id="item7"></label><br>
 
-    <hr />
-    <h3><a href="./public/about.html">About Me</a> <a href="./public/contact.html">Contact Me</a></h3>
+        <h2>需老妈帮忙携带的：</h2>
+        <label><input type="checkbox" name="item8" id="item8"> 银行卡</label><br>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Load saved values from localStorage
+            for (let i = 1; i <= 8; i++) {
+                const checkbox = document.getElementById(`item${i}`);
+                checkbox.checked = localStorage.getItem(`item${i}`) === 'true';
+                
+                // Save checkbox state on change
+                checkbox.addEventListener('change', function() {
+                    localStorage.setItem(`item${i}`, checkbox.checked);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
